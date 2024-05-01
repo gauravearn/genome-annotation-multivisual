@@ -43,7 +43,8 @@ genecoding <- function(genomealigned, ids, strand) {
        updateorientation <- as.list(ifelse(data[,"strand"] == "+", "1"))
        finaldata <- cbind(data, updatestrand, updateorientation)
        colnames(finaldata) <- c("molecule", "gene", "start", "end", "strand", "orientation", "strand", "orientation")
-    } return(finaldata[c(1,2,3,4,7,8)]) 
+       return(finaldata[c(1,2,3,4,7,8)]) 
+    } 
     if (strand == "negative" || ids) {
         negfilterids <- dplyr::filter(filteredfile, filteredfile["col1"] == inputids)
         negfilterstrand <- dplyr::filter(filterids, negfilterids["col7"] == "-")
@@ -72,5 +73,6 @@ genecoding <- function(genomealigned, ids, strand) {
        updateorientation <- as.list(ifelse(data[,"strand"] == "+", "1"))
        finaldata <- cbind(data, updatestrand, updateorientation)
        colnames(finaldata) <- c("molecule", "gene", "start", "end", "strand", "orientation", "strand", "orientation") 
-    } return(finaldata[c(1,2,3,4,7,8)]) 
+       return(finaldata[c(1,2,3,4,7,8)])
+    }  
 }
