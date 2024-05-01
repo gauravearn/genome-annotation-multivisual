@@ -1,7 +1,8 @@
 # genome-annotation-multivisual
 
-This allows for the visualization of any gene coming from the alignments. You can either make the complete genes, or a part of the gene or specific coding regions. 
+This allows for the visualization of any coding regions coming from the protein alignments. support for the visualization of all the coding regions for a specific ids. implemented dplyr so that it will be faster.
 
+ 
 Academic Staff Member \
 Bioinformatics \
 Institute for Biochemistry and Biology \
