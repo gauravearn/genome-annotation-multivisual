@@ -31,9 +31,9 @@ genecoding <- function(genomealigned, ids, strand) {
         for (i in seq_along(posfilterstrand[4])){
                    idstart <- posfilterstrand[4][i]}
         for (i in seq_along(posfilterstrand[5])){
-                   idend <- postfilterstrand[5][i]}
-        for (i in seq_along(postfilterstrand[7])){
-             idorientation <- postfilterstrand[7][i]}
+                   idend <- posfilterstrand[5][i]}
+        for (i in seq_along(posfilterstrand[7])){
+             idorientation <- posfilterstrand[7][i]}
        idtype <- str_replace_all(idtype, "miniprot", "mRNA")    
        data <- cbind(newids, idtype, idstart, idend, idorientation)
        colnames(data)
@@ -48,22 +48,22 @@ genecoding <- function(genomealigned, ids, strand) {
     if (strand == "negative" || ids) {
         negfilterids <- dplyr::filter(filteredfile, filteredfile["col1"] == inputids)
         negfilterstrand <- dplyr::filter(filterids, negfilterids["col7"] == "-")
-    idvector <- vector(length = length(posfilterids$col1))
-        idtype <- vector(length=length(posfilterids$col1))
-        idstart <- vector(length=length(posfilterids$col1))
-        idend <- vector(length=length(posfilterids$col1))
-        idorientation <- vector(length=length(posfilterids$col1))
-        newids <- rep(inputids,length(posfilterids$col1))
-        for (i in seq_along(posfilterstrand[1])){
-                 idvector <- posfilterstrand[1][i] }
-        for (i in seq_along(posfilterstrand[1])){
-                   idtype <- posfilterstrand[2][i] }
-        for (i in seq_along(posfilterstrand[4])){
-                   idstart <- posfilterstrand[4][i]}
-        for (i in seq_along(posfilterstrand[5])){
-                   idend <- postfilterstrand[5][i]}
-        for (i in seq_along(postfilterstrand[7])){
-             idorientation <- postfilterstrand[7][i]}
+    idvector <- vector(length = length(negfilterids$col1))
+        idtype <- vector(length=length(negfilterids$col1))
+        idstart <- vector(length=length(negfilterids$col1))
+        idend <- vector(length=length(negfilterids$col1))
+        idorientation <- vector(length=length(negfilterids$col1))
+        newids <- rep(inputids,length(negfilterids$col1))
+        for (i in seq_along(negfilterstrand[1])){
+                 idvector <- negfilterstrand[1][i] }
+        for (i in seq_along(negfilterstrand[1])){
+                   idtype <- negfilterstrand[2][i] }
+        for (i in seq_along(negfilterstrand[4])){
+                   idstart <- negfilterstrand[4][i]}
+        for (i in seq_along(negfilterstrand[5])){
+                   idend <- negfilterstrand[5][i]}
+        for (i in seq_along(negfilterstrand[7])){
+             idorientation <- negfilterstrand[7][i]}
        idtype <- str_replace_all(idtype, "miniprot", "mRNA")    
        data <- cbind(newids, idtype, idstart, idend, idorientation)
        colnames(data)
